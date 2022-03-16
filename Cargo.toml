@@ -1,6 +1,6 @@
 [package]
 name = "onnxrt-sys"
-version = "0.7.0"
+version = "0.8.0"
 authors = ["FuriosaAI, Inc."]
 description = "OnnxRt-sys provides low-level Rust bindings to the C API for Microsoft's ONNX Runtime."
 license = "MIT OR Apache-2.0"
