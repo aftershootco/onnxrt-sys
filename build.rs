@@ -13,7 +13,7 @@ use std::{
 /// WARNING: If version is changed, bindings for all platforms will have to be re-generated.
 ///          To do so, run this:
 ///              cargo build --features generate-bindings
-const ORT_VERSION: &str = "1.9.0";
+const ORT_VERSION: &str = "1.10.0";
 
 /// Base Url from which to download pre-built releases/
 const ORT_RELEASE_BASE_URL: &str = "https://github.com/microsoft/onnxruntime/releases/download";
@@ -298,7 +298,8 @@ impl OnnxPrebuiltArchive for Triplet {
             | (Os::Windows, Architecture::Arm, Accelerator::None)
             | (Os::Windows, Architecture::Arm64, Accelerator::None)
             | (Os::Linux, Architecture::X86_64, Accelerator::None)
-            | (Os::MacOs, Architecture::X86_64, Accelerator::None) => {
+            | (Os::MacOs, Architecture::X86_64, Accelerator::None)
+            | (Os::MacOs, Architecture::Arm64, Accelerator::None) => {
                 Cow::from(format!("{}-{}", self.os.as_onnx_str(), self.arch.as_onnx_str()))
             }
             // onnxruntime-win-gpu-x64-1.8.1.zip
